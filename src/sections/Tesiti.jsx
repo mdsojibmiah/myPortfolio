@@ -67,7 +67,7 @@ const Testi = () => {
   );
 
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-16 relative overflow-hidden">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
