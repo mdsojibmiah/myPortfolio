@@ -1,34 +1,62 @@
 import React from "react";
-import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaFigma } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiPostgresql, SiMongodb, SiJest, SiCypress } from "react-icons/si";
+import { FaReact, FaNodeJs, FaGitAlt, FaDocker, FaFigma, FaJava, FaCuttlefish } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiPostgresql, SiMongodb, SiJest, SiCypress, SiPrisma, SiMysql, SiFirebase, SiRedis, SiGraphql } from "react-icons/si";
 
 const skills = [
+  {
+    category: "Languages",
+    skills: [
+      { name: "C", icon: <FaCuttlefish className="text-gray-600" /> },
+      { name: "C++", icon: <FaCuttlefish className="text-blue-500" /> },
+      { name: "JavaScript", icon: <SiTypescript className="text-yellow-400" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+      { name: "Java", icon: <FaJava className="text-red-600" /> },
+    ],
+  },
   {
     category: "Frontend",
     skills: [
       { name: "React", icon: <FaReact className="text-blue-400" /> },
       { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+      { name: "Redux", icon: <FaReact className="text-purple-500" /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" /> },
     ],
   },
   {
-    category: "Backend",
+    category: "Backend & APIs",
     skills: [
       { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
       { name: "Express.js", icon: <FaNodeJs className="text-gray-300" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-700" /> },
-      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+      { name: "RESTful APIs", icon: <FaNodeJs className="text-blue-300" /> },
+      { name: "JWT", icon: <FaNodeJs className="text-yellow-400" /> },
+      // { name: "GraphQL", icon: <SiGraphql className="text-pink-500" /> },
     ],
   },
   {
-    category: "Tools & Others",
+    category: "Databases",
+    skills: [
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-700" /> },
+      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+      { name: "Mongoose", icon: <SiMongodb className="text-green-400" /> },
+      { name: "Prisma", icon: <SiPrisma className="text-blue-400" /> },
+      { name: "MySQL", icon: <SiMysql className="text-blue-500" /> },
+      { name: "Firebase", icon: <SiFirebase className="text-yellow-400" /> },
+      // { name: "Redis", icon: <SiRedis className="text-red-500" /> },
+    ],
+  },
+  {
+    category: "Tools & Platforms",
     skills: [
       { name: "Git/GitHub", icon: <FaGitAlt className="text-orange-500" /> },
-      { name: "Docker", icon: <FaDocker className="text-blue-400" /> },
+      { name: "GitHub Actions", icon: <FaGitAlt className="text-orange-400" /> },
+      // { name: "Docker", icon: <FaDocker className="text-blue-400" /> },
+      { name: "VS Code", icon: <FaCuttlefish className="text-purple-500" /> },
+      { name: "Postman", icon: <FaCuttlefish className="text-red-300" /> },
       { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
-      { name: "Jest", icon: <SiJest className="text-red-500" /> },
-      { name: "Cypress", icon: <SiCypress className="text-green-400" /> },
+      // { name: "Jest", icon: <SiJest className="text-red-500" /> },
+      // { name: "Cypress", icon: <SiCypress className="text-green-400" /> },
+      // { name: "AWS", icon: <FaCuttlefish className="text-orange-600" /> },
+      { name: "Vercel", icon: <FaCuttlefish className="text-white" /> },
     ],
   },
 ];
@@ -36,12 +64,10 @@ const skills = [
 export const Skills = () => {
   return (
     <section id="skills" className="py-16 relative overflow-hidden">
-      {/* Background Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-highlight/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
             Expertise & Tools
@@ -50,11 +76,10 @@ export const Skills = () => {
             Skills <span className="font-serif italic font-normal text-white">that make an impact</span>
           </h2>
           <p className="text-muted-foreground animate-fade-in">
-            A professional overview of my technical skills with recognizable icons.
+            Modern technologies chosen for performance, scalability, and reliability
           </p>
         </div>
 
-        {/* Skills Grid */}
         <div className="grid md:grid-cols-3 gap-12">
           {skills.map((category, idx) => (
             <div

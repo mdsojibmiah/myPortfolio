@@ -4,62 +4,44 @@ import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
 const projects = [
   {
-    title: "Fintech Dashboard",
-    description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
-    image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
-    image: "/projects/project2.png",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "AI Writing Assistant",
-    description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
-    image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Project Management Tool",
-    description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
-    image: "/projects/project4.png",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
-    link: "#",
-    github: "#",
-  },
-  {
     title: "Social Profile Marketplace",
     description:
-      "A platform for buying and selling social media profiles securely with analytics and verification.",
-    image: "/projects/project5.png",
-    tags: ["React", "NodeJS", "PostgreSQL", "Redux"],
-    link: "#",
-    github: "#",
+      "A full-stack marketplace built with the PERN stack. Implemented authentication, subscriptions, Stripe payments, admin verification panel, and user chat system.",
+    image: "/projects/project_11.png",
+    tags: ["React.js", "Node.js", "PostgreSQL", "Redux", "Tailwind CSS"],
+    link: "https://flipearnsocial.vercel.app/",
+    github: "https://github.com/mdsojibmiah/flipearn",
   },
   {
-    title: "Portfolio Builder",
+    title: "Mosque & Cemetery Management Website",
     description:
-      "A web app that allows users to create and customize personal portfolios easily.",
-    image: "/projects/project6.png",
-    tags: ["Next.js", "Tailwind", "Firebase"],
-    link: "#",
-    github: "#",
+      "Digitally managed mosque cemetery records with responsive UI. Integrated live prayer times using AlAdhan API, monitored donations, expenses, committee details, and added notice board, gallery, and FAQ section.",
+    image: "/projects/project_2.png",
+    tags: ["React.js", "Tailwind CSS", "EmailJS", "Vite", "AlAdhan API"],
+    link: "https://bpmosquegrave.vercel.app/",
+    github: "https://github.com/mdsojibmiah/bpmosquegrave",
+  },
+  {
+    title: "AI Thumbnail Generator App",
+    description:
+      "A full-stack AI thumbnail generator using React and MERN stack. Implemented user authentication, stored generated thumbnails in MongoDB, and integrated Google Gemini API for AI-powered thumbnail creation.",
+    image: "/projects/project_3.png",
+    tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Google Gemini API"],
+    link: "https://thumblify-five.vercel.app/",
+    github: "https://github.com/mdsojibmiah/Thumblify",
+  },
+  {
+    title: "Gemini 2.0 Clone",
+    description:
+      "A financial platform clone built with React and Tailwind CSS, featuring real-time data visualization and portfolio tracking inspired by Gemini 2.0.",
+    image: "/projects/project_4.png",
+    tags: ["React", "Tailwind CSS", "Gemini API"],
+    link: "https://gemini2-0-clone-xi.vercel.app/",
+    github: "https://github.com/mdsojibmiah/gemini2.0_clone",
   },
 ];
 
-// Modal Component with fade-in animation and modern styling
+// Modal Component
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
@@ -150,7 +132,7 @@ export const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid with modern hover effects */}
+        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleProjects.map((project, idx) => (
             <div
@@ -204,14 +186,13 @@ export const Projects = () => {
           ))}
         </div>
 
-        {/* View All CTA */}
-        {!showAll && (
-          <div className="text-center mt-12 animate-fade-in animation-delay-500">
-            <AnimatedBorderButton onClick={() => setShowAll(true)}>
-              View All Projects <ArrowUpRight className="w-5 h-5" />
-            </AnimatedBorderButton>
-          </div>
-        )}
+        {/* Always Visible Button */}
+        <div className="text-center mt-12 animate-fade-in animation-delay-500">
+          <AnimatedBorderButton onClick={() => setShowAll(!showAll)}>
+            {showAll ? "Collapse Projects" : "View All Projects"}{" "}
+            <ArrowUpRight className="w-5 h-5" />
+          </AnimatedBorderButton>
+        </div>
       </div>
 
       {/* Modal */}

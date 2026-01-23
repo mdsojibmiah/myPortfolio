@@ -10,25 +10,34 @@ import {
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
-  "React",
-  "Next.js",
+  "C",
+  "C++",
+  "JavaScript",
   "TypeScript",
+  "Java",
+  "React.js",
+  "Next.js",
+  "Redux",
+  "Tailwind CSS",
   "Node.js",
-  "GraphQL",
+  "Express.js",
+  "RESTful APIs",
   "PostgreSQL",
   "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
-  "Vercel",
-  "Tailwind CSS",
+  "Mongoose",
   "Prisma",
-  "Jest",
-  "Cypress",
-  "Figma",
+  "MySQL",
+  "Firebase",
   "Git",
+  "GitHub",
   "GitHub Actions",
+  "Docker",
+  "VS Code",
+  "Postman",
+  "Figma",
+  "Vercel",
 ];
+
 
 export const Hero = () => {
   return (
@@ -84,10 +93,8 @@ export const Hero = () => {
                   precision.
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Md. Sajib Miah — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+              <p className="text-lg text-muted-foreground max-w-2xl animate-fade-in animation-delay-200">
+              Hi, I’m Md. Sajib Miah, a software engineer experienced in React, Next.js, and TypeScript. I build modern web applications with a strong focus on performance, scalability, and clean architecture.
               </p>
             </div>
 
