@@ -3,11 +3,11 @@ import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
 import { Projects } from "@/sections/Projects";
 import { Experience } from "@/sections/Experience";
-import { Testimonials } from "@/sections/Testimonials";
+// import { Testimonials } from "@/sections/Testimonials";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "./layout/Footer";
 import Skills from "./sections/Skills";
-import Testi from "./sections/Tesiti";
+// import Testimonials from "./sections/Tesiti";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Projects />
         <Experience />
         {/* <Testimonials /> */}
-        <Testi/>
+        {/* <Testimonials/> */}
         <Contact />
       </main>
       <Footer />

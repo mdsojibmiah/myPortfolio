@@ -94,7 +94,7 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl animate-fade-in animation-delay-200">
-              Hi, I’m Md. Sajib Miah, a software engineer experienced in React, Next.js, and TypeScript. I build modern web applications with a strong focus on performance, scalability, and clean architecture.
+              Hi, I’m Md. Sajib Miah, a Front-end developer experienced in React, Next.js, and TypeScript. I build modern web applications with a strong focus on performance, scalability, and clean architecture.
               </p>
             </div>
 
