@@ -26,7 +26,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Dhaka, Bangladesh",
+    value: "Mirpur-6, Dhaka, Bangladesh",
     href: "#",
   },
 ];
@@ -55,7 +55,7 @@ export const Contact = () => {
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables."
+          "EmailJS configuration is missing. Please check your environment variables.",
         );
       }
 
@@ -67,7 +67,7 @@ export const Contact = () => {
           email: formData.email,
           message: formData.message,
         },
-        publicKey
+        publicKey,
       );
 
       setSubmitStatus({
@@ -79,8 +79,7 @@ export const Contact = () => {
       console.error("EmailJS error:", err);
       setSubmitStatus({
         type: "error",
-        message:
-          err.text || "Failed to send message. Please try again later.",
+        message: err.text || "Failed to send message. Please try again later.",
       });
     } finally {
       setIsLoading(false);
@@ -183,7 +182,9 @@ export const Contact = () => {
                 size="lg"
                 disabled={isLoading}
               >
-                {isLoading ? "Sending..." : (
+                {isLoading ? (
+                  "Sending..."
+                ) : (
                   <>
                     Send Message <Send className="w-4 md:w-5 h-4 md:h-5" />
                   </>
@@ -229,7 +230,9 @@ export const Contact = () => {
                       <div className="text-sm md:text-base text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium text-sm md:text-base">{item.value}</div>
+                      <div className="font-medium text-sm md:text-base">
+                        {item.value}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -239,7 +242,9 @@ export const Contact = () => {
             <div className="glass rounded-3xl p-6 md:p-8 border border-primary/30">
               <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                 <span className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-medium text-sm md:text-base">Currently Available</span>
+                <span className="font-medium text-sm md:text-base">
+                  Currently Available
+                </span>
               </div>
               <p className="text-sm md:text-base text-muted-foreground">
                 I'm currently open to new opportunities and exciting projects.
