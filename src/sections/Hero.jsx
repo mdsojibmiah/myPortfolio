@@ -6,8 +6,10 @@ import {
   Linkedin,
   Twitter,
   Download,
+  Code,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { useState, useEffect } from "react";
 
 const skills = [
   "C",
@@ -39,79 +41,94 @@ const skills = [
 ];
 
 export const Hero = () => {
+  // Dynamic headline phrases
+  const phrases = [
+    "React Developer",
+    "Front-end Engineer",
+    "TypeScript Expert",
+  ];
+  const [currentPhrase, setCurrentPhrase] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Bg */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/hero-bg.jpg"
-          alt="Hero image"
+          alt="Md. Sajib Miah coding at desk"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
       </div>
 
-      {/* Green Dots */}
+      {/* Floating Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
+            key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
+              animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
           />
         ))}
       </div>
 
-      {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
+          {/* Left Column */}
           <div className="space-y-8">
-            <div className="animate-fade-in">
+            <div className="animate-fade-in flex items-center gap-2">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                {/* <span className="w-2 h-2 bg-primary rounded-full animate-pulse" /> */}
+                <Code className="w-5 h-5 text-primary animate-pulse" /> Software
+                Engineer • React Specialist
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+                Building <span className="text-primary glow-text">Modern</span>
                 <br />
-                experiences with
-                <br />
+                Web{" "}
                 <span className="font-serif italic font-normal text-white">
-                  precision
+                  Experiences
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl animate-fade-in animation-delay-200">
-                Hi, I’m Md. Sajib Miah, a Front-end developer experienced in
-                React, Next.js, and TypeScript. I build modern web applications
-                with a strong focus on performance, scalability, and clean
-                architecture.
+                Hi, I’m Md. Sajib Miah. I build fast, scalable, and responsive
+                web applications using React, Next.js, and TypeScript that
+                delight users and solve real problems.
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row sm:gap-4 gap-2 animate-fade-in animation-delay-300">
-              <a href="#contact" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto">
-                  Contact Me <ArrowRight className="w-5 h-5" />
+              <a href="#projects" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto hover:scale-105 transition-transform"
+                >
+                  View Projects <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
               <AnimatedBorderButton
-                href="/MD_Sajib_Miah_Resume.pdf"
+                href="/Md_Sajib_Miah.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto hover:scale-105 transition-transform"
               >
                 <Download className="w-5 h-5" />
                 Download CV
@@ -132,23 +149,25 @@ export const Hero = () => {
                 <a
                   key={idx}
                   href={social.href}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300 group relative"
                 >
-                  {<social.icon className="w-5 h-5" />}
+                  <social.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs bg-background/90 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    {social.icon === Github
+                      ? "GitHub"
+                      : social.icon === Linkedin
+                        ? "LinkedIn"
+                        : "Twitter"}
+                  </span>
                 </a>
               ))}
             </div>
           </div>
-          {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
-            {/* Profile Image */}
+
+          {/* Right Column */}
+          <div className="relative animate-fade-in animation-delay-300">
             <div className="relative max-w-md mx-auto">
-              <div
-                className="absolute inset-0 
-              rounded-3xl bg-gradient-to-br 
-              from-primary/30 via-transparent 
-              to-primary/10 blur-2xl animate-pulse"
-              />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src="/profileimg.jpg"
@@ -165,6 +184,7 @@ export const Hero = () => {
                     </span>
                   </div>
                 </div>
+
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
                   <div className="text-2xl font-bold text-primary">1+</div>
@@ -172,29 +192,40 @@ export const Hero = () => {
                     Years Exp.
                   </div>
                 </div>
+
+                {/* Floating Skill Badges */}
+                {/* {["React", "Next.js", "TypeScript"].map((skill, idx) => (
+                  <div
+                    key={idx}
+                    className={`absolute ${
+                      idx === 0
+                        ? "-top-6 right-10"
+                        : idx === 1
+                          ? "top-10 -right-6"
+                          : "bottom-10 left-6"
+                    } bg-primary/20 text-primary text-xs px-2 py-1 rounded-full animate-float`}
+                  >
+                    {skill}
+                  </div>
+                ))} */}
               </div>
             </div>
           </div>
         </div>
-
-        {/* Skills Section */}
-        <div className="mt-20 animate-fade-in animation-delay-600">
+        {/* SKILLS MARQUEE */}
+        <div className="mt-20">
           <p className="text-sm text-muted-foreground mb-6 text-center">
-            Technologies I work with
+            Design tools & skills
           </p>
+
           <div className="relative overflow-hidden">
-            <div
-              className="absolute left-0 top-0 bottom-0 w-32
-             bg-gradient-to-r from-background to-transparent z-10"
-            />
-            <div
-              className="absolute right-0 top-0 bottom-0 w-32
-             bg-gradient-to-l from-background to-transparent z-10"
-            />
-            <div className="flex animate-marquee">
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+            <div className="flex animate-marquee whitespace-nowrap">
               {[...skills, ...skills].map((skill, idx) => (
                 <div key={idx} className="flex-shrink-0 px-6 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition">
                     {skill}
                   </span>
                 </div>
@@ -204,10 +235,8 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 
-      animate-fade-in animation-delay-800"
-      >
+      {/* Scroll Down */}
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
         <a
           href="#about"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
@@ -215,7 +244,7 @@ export const Hero = () => {
           <span className="text-xs uppercase tracking-wider">Scroll</span>
           <ChevronDown className="w-6 h-6 animate-bounce" />
         </a>
-      </div>
+      </div> */}
     </section>
   );
 };
